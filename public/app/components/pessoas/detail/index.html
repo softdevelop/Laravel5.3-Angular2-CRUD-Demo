@@ -1,0 +1,14 @@
+<div *ngIf="pessoa" >
+	<h5 class="text-center text-muted">Detalhe de {{ pessoa.nome }}</h5>
+	<hr>
+	<a href="#" class="list-group-item clearfix">
+	    <span class="glyphicon glyphicon-file"></span>
+	    Nome: {{ pessoa.nome }}
+	    <span class="pull-right">
+
+	        <button class="btn btn-md btn-success" [routerLink]="['Pessoas']">
+	            Voltar a lista
+	        </button>
+	  </span>
+	</a>
+</div>

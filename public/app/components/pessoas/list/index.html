@@ -1,0 +1,32 @@
+<div class="row">
+    <h5 class="text-center text-muted">Lista de Pessoas</h5>
+    <hr>
+    <div class="pull-right" style="margin-bottom: 10px;">
+        <button class="btn btn-md btn-success" [routerLink]="['PessoaCreate']">
+            Adicionar nova pessoa
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="list-group" *ngFor="#pessoa of pessoas | async" id="item-{{ pessoa.id }}">
+        <a href="#" class="list-group-item clearfix">
+            <span class="glyphicon glyphicon-file"></span>
+            Nome: {{ pessoa.nome }}
+            <span class="pull-right">
+
+                <button class="btn btn-md btn-success" [routerLink]="['PessoaDetail', {id:pessoa.id}]">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+
+                <button class="btn btn-md btn-info" [routerLink]="['PessoaEdit', {id:pessoa.id}]">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+
+                <button href="#remove-pessoa" data-toggle="modal" class="btn btn-md btn-danger" (click)="selectedPessoa = pessoa">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+          </span>
+        </a>
+    </div>
+    <pessoa-remove [pessoa]="selectedPessoa"></pessoa-remove>
+</div>
